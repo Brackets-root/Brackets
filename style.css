@@ -91,6 +91,7 @@
     /* Main */
     .about {
         color: rgb(76, 73, 73);
+        text-align: justify;
     }
 
     body.dark p.about {
