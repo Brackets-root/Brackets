@@ -28,6 +28,7 @@
         border-radius: 20px;
         align-items: center;
         box-shadow: 0 5px 15px rgb(128, 128, 128);
+        transition: transform 0.5s ease-in-out;
     }
 
     header nav ul li a,
@@ -49,6 +50,11 @@
         border-radius: 20px;
         cursor: pointer;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.453);
+        text-shadow: 0px 0px 6px white;
+    }
+
+    header ul:hover {
+        transform: scale(1.1);
     }
 
     .dark {
@@ -78,22 +84,44 @@
         }
     }
 
-
     /* Floating Button */
-    .first,
-    .second,
-    .third {
+    .fab button {
         position: fixed;
         display: flex;
         font-size: 2em;
         height: 50px;
         width: 50px;
-        background-color: rgb(224, 219, 219);
+        background-color: gray;
+        color: white;
+        border: none;
         border-radius: 50%;
+        box-shadow: 0 5px 15px 0px rgb(128, 128, 128);
+
         bottom: 30px;
         right: 30px;
         justify-content: center;
         align-items: center;
+    }
+
+    #msg {
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        bottom: 110px;
+        right: 100px;
+        z-index: 2000;
+        background-color: gray;
+        color: white;
+        box-shadow: 0 5px 15px 0px rgb(128, 128, 128);
+        text-shadow: 0px 0px 6px white;
+        font-size: 1.1em;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    #msg.show {
+        opacity: 1;
     }
 
     .second,
@@ -103,21 +131,17 @@
         transform: translateY(0);
     }
 
-    .first {
-        transition: all .5s ease-in-out;
-    }
-
     .second {
-        transition: all .8s ease-in-out;
+        transition: all .8s ease;
     }
 
     .third {
-        transition: all .8s ease-in-out;
+        transition: all .8s ease;
     }
 
     .fab.open .first {
         transform-origin: center;
-        transform: rotate(45deg) scale(1.5);
+        transform: rotate(45deg) scale(1.3);
     }
 
     .fab.open .second {
@@ -132,7 +156,66 @@
         transform: translateY(-135px);
     }
 
-    .fab button:hover {
-        box-shadow: 0 6px 10px gray;
-        transform: scale(1.1);
+    .fab:not(.open) .first:hover {
+        animation: bouncefirst 0.5s infinite alternate;
+    }
+
+    @keyframes bouncefirst {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.3);
+            box-shadow: 0 6px 10px gray;
+            text-shadow: 0px 0px 6px white;
+        }
+    }
+
+    .fab.open .first:hover {
+        animation: bounceopen 0.5s infinite alternate;
+    }
+
+    @keyframes bounceopen {
+        from {
+            transform: rotate(45deg);
+        }
+
+        to {
+            transform: rotate(45deg) scale(1.3);
+            box-shadow: 0 6px 10px gray;
+            text-shadow: 0px 0px 6px white;
+        }
+    }
+
+    .fab .second:hover {
+        animation: bouncesecond 0.5s infinite alternate;
+    }
+
+    @keyframes bouncesecond {
+        from {
+            transform: translateY(-75px);
+        }
+
+        to {
+            transform: translateY(-75px) scale(1.1);
+            box-shadow: 0 6px 10px gray;
+            text-shadow: 0px 0px 6px white;
+        }
+    }
+
+    .fab .third:hover {
+        animation: bouncethird 0.5s infinite alternate;
+    }
+
+    @keyframes bouncethird {
+        from {
+            transform: translateY(-135px);
+        }
+
+        to {
+            transform: translateY(-140px);
+            box-shadow: 0 6px 10px gray;
+            text-shadow: 0px 0px 6px white;
+        }
     }

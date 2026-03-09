@@ -9,7 +9,6 @@ mode.addEventListener("click", function () {
     }
 })
 
-
 // Floating Button
 document.getElementById("add").addEventListener("click", function () {
     document.querySelector(".fab").classList.toggle("open");
@@ -19,12 +18,21 @@ document.querySelector(".third").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-document.querySelector(".second").addEventListener("click", function(){
+function fun(message) {
+    let display = document.getElementById("msg");
+    display.innerText = message; 
+    display.classList.add("show");
+
+    setTimeout(() => {
+        display.classList.remove("show");
+    }, 2000);
+}
+document.querySelector(".second").addEventListener("click", function () {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(window.location.href)
-            .then(() => alert("Link copied to clipboard!"))
-            .catch(() => alert("Failed to copy link."));
+            .then(() => fun("Link copied to clipboard!"))
+            .catch(() => fun("Failed to copy link."));
     } else {
-        prompt("Copy this link manually:", window.location.href);
+        prompt("Unsecure!!! Copy this link manually:", window.location.href);
     }
-})
+});
