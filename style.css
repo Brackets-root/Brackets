@@ -1,5 +1,78 @@
     * {
-        font-family: "Ubuntu", "Lato", "Red Hat Display";
-        padding: 0;
-        margin: 0;
+        font-family: "Ubuntu", "Lato", "Red Hat Display", sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        padding: 10px 20px;
+        background-color: gray;
+        border-radius: 20px;
+        align-items: center;
+        box-shadow: 0 5px 15px rgb(128, 128, 128);
+    }
+
+    header nav ul li a,
+    #mode {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2em;
+        padding: 8px 12px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        background: none;
+        border: none;
+    }
+
+    header nav ul li a:hover,
+    #mode:hover {
+        font-size: 1.3em;
+        background-color: #555;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.453);
+    }
+
+    body {
+        height: 110vh;
+        transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+
+    .dark {
+        background-color: rgb(55, 54, 54);
+        color: white;
+    }
+
+    #mode:active {
+        transform: rotate(20deg) scale(1.1);
+        transition: transform 0.2s ease;
+    }
+
+    @media (max-width:480px) {
+        header {
+            position: static;
+            padding: 10px 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header nav ul {
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+            margin: 0 auto;
+            border-radius: 100px;
+        }
     }
