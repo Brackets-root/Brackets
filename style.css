@@ -3,6 +3,12 @@
         scroll-behavior: smooth;
     }
 
+    body {
+        height: 1110vh;
+        transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+
+    /* Nav Bar */
     header {
         position: sticky;
         top: 0;
@@ -45,11 +51,6 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.453);
     }
 
-    body {
-        height: 110vh;
-        transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-    }
-
     .dark {
         background-color: rgb(55, 54, 54);
         color: white;
@@ -75,4 +76,63 @@
             margin: 0 auto;
             border-radius: 100px;
         }
+    }
+
+
+    /* Floating Button */
+    .first,
+    .second,
+    .third {
+        position: fixed;
+        display: flex;
+        font-size: 2em;
+        height: 50px;
+        width: 50px;
+        background-color: rgb(224, 219, 219);
+        border-radius: 50%;
+        bottom: 30px;
+        right: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .second,
+    .third {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(0);
+    }
+
+    .first {
+        transition: all .5s ease-in-out;
+    }
+
+    .second {
+        transition: all .8s ease-in-out;
+    }
+
+    .third {
+        transition: all .8s ease-in-out;
+    }
+
+    .fab.open .first {
+        transform-origin: center;
+        transform: rotate(45deg) scale(1.5);
+    }
+
+    .fab.open .second {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(-75px);
+    }
+
+    .fab.open .third {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(-135px);
+    }
+
+    .fab button:hover {
+        box-shadow: 0 6px 10px gray;
+        transform: scale(1.1);
     }
