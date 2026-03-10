@@ -141,8 +141,24 @@
         color: gray;
         display: block;
         margin: 30px;
-        font-size: 1.2em;
+        font-size: 1.1em;
         text-shadow: 0 5px 10px gray;
+    }
+
+    #thm {
+        display: flex;
+        justify-content: center;
+    }
+
+    #thm-banner {
+        border: none;
+        border-radius: 20px;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    #thm-banner:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px gray;
     }
 
     /* Floating Button */
