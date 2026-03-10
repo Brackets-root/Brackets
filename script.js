@@ -1,7 +1,7 @@
 // Nav Bar
 let mode = document.getElementById("mode");
 mode.addEventListener("click", function () {
-    document.getElementById("body").classList.toggle("dark");
+    document.body.classList.toggle("dark");
     if (mode.innerText === "light_mode") {
         mode.innerText = "dark_mode";
     } else {
@@ -16,9 +16,10 @@ document.getElementById("add").addEventListener("click", function () {
 
 document.querySelector(".third").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    document.querySelector(".fab").classList.remove("open");
 });
 
-function fun(message) {
+function showmsg(message) {
     let display = document.getElementById("msg");
     display.innerText = message; 
     display.classList.add("show");
@@ -30,9 +31,11 @@ function fun(message) {
 document.querySelector(".second").addEventListener("click", function () {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(window.location.href)
-            .then(() => fun("Link copied to clipboard!"))
-            .catch(() => fun("Failed to copy link."));
+            .then(() => showmsg("Link copied to clipboard!"))
+            .catch(() => showmsg("Failed to copy link."));
+        document.querySelector(".fab").classList.remove("open");
     } else {
         prompt("Insecure!!! Copy this link manually:", window.location.href);
+        document.querySelector(".fab").classList.remove("open");
     }
 });

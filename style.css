@@ -115,7 +115,7 @@
         border: none;
         border-radius: 50%;
         box-shadow: 0 5px 15px 0px rgb(128, 128, 128);
-
+        will-change: transform;
         bottom: 30px;
         right: 30px;
         justify-content: center;
@@ -150,11 +150,7 @@
         transform: translateY(0);
     }
 
-    .second {
-        transition: all .8s ease;
-    }
-
-    .third {
+    .second, .third {
         transition: all .8s ease;
     }
 
