@@ -33,6 +33,6 @@ document.querySelector(".second").addEventListener("click", function () {
             .then(() => fun("Link copied to clipboard!"))
             .catch(() => fun("Failed to copy link."));
     } else {
-        prompt("Unsecure!!! Copy this link manually:", window.location.href);
+        prompt("Insecure!!! Copy this link manually:", window.location.href);
     }
 });
