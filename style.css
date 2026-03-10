@@ -4,8 +4,12 @@
     }
 
     body {
-        height: 1110vh;
         transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+
+    ::selection {
+        background-color: gray;
+        color: aqua;
     }
 
     /* Nav Bar */
@@ -86,21 +90,59 @@
             margin: 0 auto;
             border-radius: 100px;
         }
+
+        #card {
+            width: 365px !important;
+            height: 640px !important;
+        }
     }
 
     /* Main */
-    .about {
+    p {
         color: rgb(76, 73, 73);
         text-align: justify;
     }
 
-    body.dark p.about {
+    body.dark p {
         color: rgb(225, 217, 217);
     }
 
-    h1 {
+    h1,
+    h2 {
         font-family: "Red Hat Display", "Lato", sans-serif;
         text-shadow: 0 5px 5px gray;
+        margin: 20px;
+    }
+
+    #cover {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #card {
+        overflow: hidden;
+        width: 500px;
+        height: 700px;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 0 20px 5px gray;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #card:hover {
+        transform: scale(1.02);
+    }
+
+    #card_a {
+        text-decoration: none;
+        color: gray;
+        display: block;
+        margin: 30px;
+        font-size: 1.2em;
+        text-shadow: 0 5px 10px gray;
     }
 
     /* Floating Button */
@@ -150,7 +192,8 @@
         transform: translateY(0);
     }
 
-    .second, .third {
+    .second,
+    .third {
         transition: all .8s ease;
     }
 
